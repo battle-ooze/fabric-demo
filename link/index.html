@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>link</title>
+  <style>
+    .container {
+      background-color: #f5f6fa;
+      background-image: linear-gradient(#f5f6fa, 4px,transparent 0), linear-gradient(90deg, #ececee 1px,transparent 0);
+      background-size: 5px 5px,5px 5px;
+      width: 800px;
+      height: 800px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <canvas id="canvas"></canvas>
+</div>
+<script type="text/javascript" src="../node_modules/fabric/dist/fabric.js"></script>
+<script type="text/javascript" src="./link-canvas.js"></script>
+<script type="text/javascript" src="./link-node.js"></script>
+<script type="text/javascript" src="./link-line.js"></script>
+<script>
+const canvas = new fabric.LinkCanvas('canvas', {width: 800, height: 800})
+const node1 = new fabric.LinkNode({
+  name: '模块1', 
+  points: {
+    pre: 1,
+    next: 2
+  },
+  left: 400,
+  top: 200
+})
+const node2 = new fabric.LinkNode({
+  name: '模块2', 
+  points: {
+    pre: 1
+  },
+  left: 300,
+  top: 450
+})
+const node3 = new fabric.LinkNode({
+  name: '模块3', 
+  points: {
+    pre: 2
+  },
+  left: 500,
+  top: 450
+})
+canvas.add(node1, node2, node3)
+</script>
+</body>
+</html>
